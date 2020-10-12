@@ -1,41 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.lynnguo666.site</id>
-    <title>林恩LynnGuo</title>
-    <updated>2020-10-12T11:01:42.695Z</updated>
+    <title>LynnGuo666&apos;s Blog</title>
+    <updated>2020-10-12T11:33:37.250Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.lynnguo666.site"/>
     <link rel="self" href="https://blog.lynnguo666.site/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://blog.lynnguo666.site/images/avatar.png</logo>
     <icon>https://blog.lynnguo666.site/favicon.ico</icon>
-    <rights>All rights reserved 2020, 林恩LynnGuo</rights>
+    <rights>All rights reserved 2020, LynnGuo666&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[通知-20201011【Top】]]></title>
+        <title type="html"><![CDATA[AdGuard Content Blocker Pro v4.0.24ƞ for Android 直装高级正式版 —— 最高级的广告拦截应用，支持去除国内95%应用的广告]]></title>
+        <id>https://blog.lynnguo666.site/post/adguard-android/</id>
+        <link href="https://blog.lynnguo666.site/post/adguard-android/">
+        </link>
+        <updated>2020-10-12T11:14:24.000Z</updated>
+        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/10/12/i2w6eVFjJbQGO7n.jpg" alt="Adguard Contect Blocker Pro.jpg" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/10/12/i2w6eVFjJbQGO7n.jpg" alt="Adguard Contect Blocker Pro.jpg" loading="lazy"></figure>
+<!-- more -->
+<p>AdGuard Content Blocker Pro「广告内容过滤器」虽然是一款面向 Yandex 浏览器与三星网络浏览器的，但支持去除国内95%以上应用内的广告，能够帮助您过滤一切广告，同时无需 Root 权限的应用。<br>
+AdGuard 支持对应用进行自定义以满足您的需要，可以从超过 20 种针对各语种专门编写的过滤规则和通用过滤规则中加以选择，以符合你的需要。<br>
+Adguard 为你提供了一个可靠的、可管理的保护，滤波器所有加载网页广告。Adguard 会移除所有烦人的广告，阻止危险网站的加载，也不会允许任何人在网上跟踪你的活动。<br>
+当处理一个网页，adguard做几件事情：</p>
+<ul>
+<li>删除广告和在线跟踪代码直接从页面。</li>
+<li>检查网页对我们的网络钓鱼和恶意网站。</li>
+<li>检查从未知来源下载的应用程序。</li>
+</ul>
+<h2 id="更新内容如下">更新内容如下：</h2>
+<p>[修复] AdGuard阻止Internet连接；<br>
+[修复]添加“取消”按钮；<br>
+[修复]为PS应用程序禁用HTTPS过滤；<br>
+[修复] com.amazon.avod.thirdpartyclient-损坏的应用程序；<br>
+[修复] com.vodafone.selfservis应用程序被HTTPS过滤破坏。</p>
+<h2 id="关于版本">关于版本：</h2>
+<p>感谢国外XDA大神的修改和分享，特点如下：</p>
+<ul>
+<li>完美解锁高级版功能；</li>
+<li>没有带有修补水印的启动；</li>
+<li>跳过启动教程。</li>
+</ul>
+<h2 id="下载地址">下载地址</h2>
+<p>蓝奏云盘密码：2348<br>
+<a href="https://t00y.com/dir/24699967-38447434-9abb4f">百度网盘</a><br>
+<a href="https://t00y.com/dir/24699967-38447434-9abb4f">腾讯微云</a><br>
+<a href="https://yxssp.lanzoui.com/b620652/">蓝奏云</a><br>
+<a href="">自建云（暂不开放下载）</a><br>
+<a href="https://download.ibo-studio.ml/">IBO-Studio下载站</a><br>
+<a href="">OneDrive</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[通知]]></title>
         <id>https://blog.lynnguo666.site/post/tong-zhi-20201011/</id>
         <link href="https://blog.lynnguo666.site/post/tong-zhi-20201011/">
         </link>
         <updated>2020-10-11T14:22:51.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="通知">通知：</h1>
-<ul>
+        <summary type="html"><![CDATA[<ul>
 <li>本网站所有文件将会进行迁移，会将所有存于Coding网盘与百度网盘与蓝奏云网盘内数据全部提取到Onedrive中，（原有链接不变）</li>
 <li>原<a href="https://bbs.lynnguo666.site">论坛</a>由于本人的一些问题导致数据丢失，故暂时关闭</li>
-<li>由于个人更新设备的原因，导致之前的文章和统计全部丢失，故重新开始统计</li>
+<li>由于个人更新设备的原因，导致之前的文章全部丢失，正在努力找回中</li>
 <li>网站主服务器由Github迁移至Leancloud国际站，Netlify和Github会作为备份站使用</li>
 <li>提示：本站已启用HTTPS访问，请尽量使用https访问本站</li>
 </ul>
 ]]></summary>
-        <content type="html"><![CDATA[<h1 id="通知">通知：</h1>
-<ul>
+        <content type="html"><![CDATA[<ul>
 <li>本网站所有文件将会进行迁移，会将所有存于Coding网盘与百度网盘与蓝奏云网盘内数据全部提取到Onedrive中，（原有链接不变）</li>
 <li>原<a href="https://bbs.lynnguo666.site">论坛</a>由于本人的一些问题导致数据丢失，故暂时关闭</li>
-<li>由于个人更新设备的原因，导致之前的文章和统计全部丢失，故重新开始统计</li>
+<li>由于个人更新设备的原因，导致之前的文章全部丢失，正在努力找回中</li>
 <li>网站主服务器由Github迁移至Leancloud国际站，Netlify和Github会作为备份站使用</li>
 <li>提示：本站已启用HTTPS访问，请尽量使用https访问本站</li>
 </ul>
 <!-- more -->
 <p>特此通知！<br>
-LynnGuo666</p>
+LynnGuo666<br>
+2020.10.11</p>
 ]]></content>
     </entry>
     <entry>
