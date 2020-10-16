@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.lynnguo666.site</id>
     <title>LynnGuo666&apos;s Blog</title>
-    <updated>2020-10-16T11:42:46.664Z</updated>
+    <updated>2020-10-16T12:00:08.740Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.lynnguo666.site"/>
     <link rel="self" href="https://blog.lynnguo666.site/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://blog.lynnguo666.site/images/avatar.png</logo>
     <icon>https://blog.lynnguo666.site/favicon.ico</icon>
     <rights>All rights reserved 2020, LynnGuo666&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[网站是如何部署并上线访问的]]></title>
+        <id>https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/</id>
+        <link href="https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/">
+        </link>
+        <updated>2020-10-16T11:54:38.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/10/16/onGZwEm4utqVyW9.png" alt="网站是如何部署的.png" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[AdGuard Content Blocker Pro v4.0.24ƞ for Android 直装高级正式版 —— 最高级的广告拦截应用，支持去除国内95%应用的广告]]></title>
         <id>https://blog.lynnguo666.site/post/adguard-android/</id>
