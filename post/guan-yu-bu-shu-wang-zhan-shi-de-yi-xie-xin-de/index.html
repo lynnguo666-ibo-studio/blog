@@ -249,7 +249,7 @@
                                     
                                         <div class="thumbnail-shadow">
                                             <h1 class="post-title">
-                                                关于
+                                                关于部署网站时的一些心得
                                             </h1>
                                             <div class="post-info">
                                                 <span class="post-category"><i class="Card Card-novel"></i>
@@ -264,29 +264,62 @@
                                                             </span>&nbsp;•&nbsp;
 
                                                             <span class="post-readtime">阅读时间:
-                                            0.2分</span>
+                                            1.7分</span>
                                                             <span class="post-edit"></span></div>
                                         </div>
                                         <div class="post-relative">
                                             <img alt="LynnGuo666&#39;s Blog" src="https://blog.lynnguo666.site/images/avatar.png?v=1602938978084" srcset="https://blog.lynnguo666.site/images/avatar.png?v=1602938978084" class="avatar avatar-100 photo" width="100" height="100">
                                             <span class="post-type-author"><a href="https://blog.lynnguo666.site" title="由LynnGuo666&#39;s Blog发布" rel="author">LynnGuo666&#39;s Blog<i class="Card Card-certify"></i></a></span>
-                                            <span class="post-publish"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;2019-01-25</span>
+                                            <span class="post-publish"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;2020-10-17</span>
                                         </div>
                         </header>
                         <div class="post-main post-type-main">
                             <div class="post-content">
                                 <div class="post-content-real">
-                                    <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+                                    <h1 id="1前言">1.前言</h1>
+<p>其实在一开始部署的时候犹豫是选择Github Pages还是Coding来部署的，但是看到Coding部署要收取CDN和OSS费用后，我毅然选择了......Coding平台作为存储空间，通过持续部署将代码传到Github上面，然后再进行部署，虽然费了点事，但是还是最后达到目标了。这里记录了整个部署的过程</p>
+<!-- more -->
+<h1 id="2gridea的配置">2.Gridea的配置</h1>
+<p>Gridea在新版里修复了对Coding的支持，所以关于设置上也有了极大的变动。<br>
+值得注意的是，仓库名填的是 项目名称/仓库名称 如lynnguo666/blog<br>
+其他的正常配置即可</p>
+<h1 id="3coding-to-github">3.Coding to Github</h1>
+<p>这里我用的coding的持续部署功能<br>
+<img src="https://blog.lynnguo666.site/post-images/1586612541745.png" alt="部署页面的选择" loading="lazy"><br>
+代码如下，需要修改的部分是<strong>用户名</strong>、<strong>token</strong>、<strong>仓库名</strong></p>
+<pre><code> pipeline {
+  agent any
+  stages {
+    stage('检出') {
+      steps {
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: env.GIT_BUILD_REF]],
+          userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]
+        ])
+      }
+    }
+    stage('推送部署') {
+      steps {
+        echo '正在推送文件...'
+        sh 'git fetch https://用户名:token@github.com/用户名/仓库名.git'
+        sh 'git push -f https://用户名:token@github.com/用户名/仓库名.git HEAD:master'
+        echo '已完成文件推送.'
+      }
+    }
+  }
+}
+</code></pre>
+<p>完成后可以尝试同步一下看看</p>
+<blockquote>
+<p>注意：Github要手动初始化仓库的master分支，否则同步会出错</p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>这里是林恩的博客，分享一些有的没的东西</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<p>林恩LynnGuo</p>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<p>编程，电脑，信息，音乐</p>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<p>Email：ccu2475274997@gmail.com</p>
+<h1 id="4关于访问节点的分配">4.关于访问节点的分配</h1>
+<p>详见<a href="https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/">网站是如何部署并上线访问的</a></p>
+<h1 id="5后语">5.后语</h1>
+<p>实际上测试后发现Vercel关于移动网络的优化还是不错的。相较于CF自选节点，也能好太多了，实测打开速度是<br>
+LeanCloud&gt;Netlify&gt;Vercel&gt;CloudFlare&gt;Github Pages<br>
+但是注意的是Leancloud每天有1G流量的限制，用没了就开始收费了，所以大家也注意下。</p>
 
                                 </div>
                             </div>
@@ -304,8 +337,8 @@
                             <div class="post-copyright">
                                 作者:
                                 LynnGuo666&#39;s Blog<br>永久链接:
-                                    <a href="https://blog.lynnguo666.site/post/about/" title="关于">
-                                        https://blog.lynnguo666.site/post/about/
+                                    <a href="https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/" title="关于部署网站时的一些心得">
+                                        https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/
                                     </a><br> 协议: MIT License
                             </div>
                         </div>
@@ -329,14 +362,24 @@
                 <div class="lite-item nearby-article">
                     
                             
+                                <div class="nearby-article-right" style="padding: 10px;">
+                                    <a class="next" rel="next" href="https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/">
+                                        网站是如何部署并上线访问的<i class="fa fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
                 </div>
                 <!--Share-->
                 <span style="margin-right:15px">
     <i class="post-share"></i>
     <span>&#x5206;&#x4EAB;:</span>
-                <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.lynnguo666.site/post/about/"><i class="fa fa-qrcode"></i></a>
-                <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.lynnguo666.site/post/about/&sharesource=qzone&title=关于&pics=https://blog.lynnguo666.site/images/avatar.png?v=1602938978084&summary="><i class="fa fa-qq"></i></a>
-                <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.lynnguo666.site/post/about/&sharesource=weibo&title=关于 + " - " + &pic="https://blog.lynnguo666.site/images/avatar.png?v=1602938978084"><i class="fa fa-weibo "></i></a>
+                <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/"><i class="fa fa-qrcode"></i></a>
+                <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/&sharesource=qzone&title=关于部署网站时的一些心得&pics=https://blog.lynnguo666.site/images/avatar.png?v=1602938978084&summary=&lt;h1 id=&#34;1前言&#34;&gt;1.前言&lt;/h1&gt;
+&lt;p&gt;其实在一开始部署的时候犹豫是选择Github Pages还是Coding来部署的，但是看到Coding部署要收取CDN和OSS费用后，我毅然选择了......Coding平台作为存储空间，通过持续部署将代码传到Github上面，然后再进行部署，虽然费了点事，但是还是最后达到目标了。这里记录了整个部署的过程&lt;/p&gt;
+"><i class="fa fa-qq"></i></a>
+                <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/&sharesource=weibo&title=关于部署网站时的一些心得 + " - " + &lt;h1 id=&#34;1前言&#34;&gt;1.前言&lt;/h1&gt;
+&lt;p&gt;其实在一开始部署的时候犹豫是选择Github Pages还是Coding来部署的，但是看到Coding部署要收取CDN和OSS费用后，我毅然选择了......Coding平台作为存储空间，通过持续部署将代码传到Github上面，然后再进行部署，虽然费了点事，但是还是最后达到目标了。这里记录了整个部署的过程&lt;/p&gt;
+&pic="https://blog.lynnguo666.site/images/avatar.png?v=1602938978084"><i class="fa fa-weibo "></i></a>
                 </span>
                 
                                             

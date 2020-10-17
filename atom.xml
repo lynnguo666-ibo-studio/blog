@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.lynnguo666.site</id>
     <title>LynnGuo666&apos;s Blog</title>
-    <updated>2020-10-17T07:09:45.015Z</updated>
+    <updated>2020-10-17T12:50:09.731Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.lynnguo666.site"/>
     <link rel="self" href="https://blog.lynnguo666.site/atom.xml"/>
@@ -10,6 +10,61 @@
     <logo>https://blog.lynnguo666.site/images/avatar.png</logo>
     <icon>https://blog.lynnguo666.site/favicon.ico</icon>
     <rights>All rights reserved 2020, LynnGuo666&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[关于部署网站时的一些心得]]></title>
+        <id>https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/</id>
+        <link href="https://blog.lynnguo666.site/post/guan-yu-bu-shu-wang-zhan-shi-de-yi-xie-xin-de/">
+        </link>
+        <updated>2020-10-17T08:09:00.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="1前言">1.前言</h1>
+<p>其实在一开始部署的时候犹豫是选择Github Pages还是Coding来部署的，但是看到Coding部署要收取CDN和OSS费用后，我毅然选择了......Coding平台作为存储空间，通过持续部署将代码传到Github上面，然后再进行部署，虽然费了点事，但是还是最后达到目标了。这里记录了整个部署的过程</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="1前言">1.前言</h1>
+<p>其实在一开始部署的时候犹豫是选择Github Pages还是Coding来部署的，但是看到Coding部署要收取CDN和OSS费用后，我毅然选择了......Coding平台作为存储空间，通过持续部署将代码传到Github上面，然后再进行部署，虽然费了点事，但是还是最后达到目标了。这里记录了整个部署的过程</p>
+<!-- more -->
+<h1 id="2gridea的配置">2.Gridea的配置</h1>
+<p>Gridea在新版里修复了对Coding的支持，所以关于设置上也有了极大的变动。<br>
+值得注意的是，仓库名填的是 项目名称/仓库名称 如lynnguo666/blog<br>
+其他的正常配置即可</p>
+<h1 id="3coding-to-github">3.Coding to Github</h1>
+<p>这里我用的coding的持续部署功能<br>
+<img src="https://blog.lynnguo666.site/post-images/1586612541745.png" alt="部署页面的选择" loading="lazy"><br>
+代码如下，需要修改的部分是<strong>用户名</strong>、<strong>token</strong>、<strong>仓库名</strong></p>
+<pre><code> pipeline {
+  agent any
+  stages {
+    stage('检出') {
+      steps {
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: env.GIT_BUILD_REF]],
+          userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]
+        ])
+      }
+    }
+    stage('推送部署') {
+      steps {
+        echo '正在推送文件...'
+        sh 'git fetch https://用户名:token@github.com/用户名/仓库名.git'
+        sh 'git push -f https://用户名:token@github.com/用户名/仓库名.git HEAD:master'
+        echo '已完成文件推送.'
+      }
+    }
+  }
+}
+</code></pre>
+<p>完成后可以尝试同步一下看看</p>
+<blockquote>
+<p>注意：Github要手动初始化仓库的master分支，否则同步会出错</p>
+</blockquote>
+<h1 id="4关于访问节点的分配">4.关于访问节点的分配</h1>
+<p>详见<a href="https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/">网站是如何部署并上线访问的</a></p>
+<h1 id="5后语">5.后语</h1>
+<p>实际上测试后发现Vercel关于移动网络的优化还是不错的。相较于CF自选节点，也能好太多了，实测打开速度是<br>
+LeanCloud&gt;Netlify&gt;Vercel&gt;CloudFlare&gt;Github Pages<br>
+但是注意的是Leancloud每天有1G流量的限制，用没了就开始收费了，所以大家也注意下。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[网站是如何部署并上线访问的]]></title>
         <id>https://blog.lynnguo666.site/post/wang-zhan-shi-ru-he-bu-shu-bing-shang-xian-fang-wen-de/</id>
